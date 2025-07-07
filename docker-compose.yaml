@@ -2,42 +2,49 @@
 
 #To launch this app without having to clone the entire repository,use the docker-compose.yaml file to run the app
 
-version: '3.9'
-services:
-# Creating the Mongodb service for the backend
- mongodb:
-  image: mongo:latest
-  container_name: mongodb_container
-  networks:
-   - mongo-net
-  command:
-  ports:
-   - 27017:27017
-  # Running the frontend container
- ip2frontend:
-  build: client
-  ports:
-   - 3000:3000
-  environment:
-   PORT: 3000
-   MONGODB_URI : mongodb://mongodb
-   DBNAME : yolomy
-  depends_on:
-   - mongodb
-  # Running the backend container 
- ip2image:
-   build: backend
-   ports:
-    - 5000:5000
-   environment:
-    PORT: 3000
-    MONGODB_URI : mongodb://mongodb
-    DBNAME : yolomy
-   depends_on:
-   - mongodb
+		
+		version: '3.9'
 
-  # Creating the network for communication
+services:
+  # Creating the Mongodb service for the backend
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb_container
+    ports:
+      - "27017:27017"
+    networks:
+      - mongo-net
+
+  # Running the frontend container
+  ip2frontend:
+    build: ./client
+    ports:
+      - "3000:3000"
+    environment:
+      PORT: 3000
+      MONGODB_URI: mongodb://mongodb
+      DBNAME: yolomy
+    depends_on:
+      - mongodb
+    networks:
+      - mongo-net
+
+   # Running the backend container 
+  ip2image:
+    build: ./backend
+    ports:
+      - "5000:5000"
+    environment:
+      PORT: 5000
+      MONGODB_URI: mongodb://mongodb
+      DBNAME: yolomy
+    depends_on:
+      - mongodb
+    networks:
+      - mongo-net
+
+ # Creating the network for communication
 networks:
- mongo-net:
-  name: mongo-net
-  driver: bridge
+  mongo-net:
+    driver: bridge
+
