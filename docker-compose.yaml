@@ -22,7 +22,7 @@ services:
     environment:
       PORT: 3000
       MONGODB_URI: mongodb://mongodb
-      DBNAME: yolomy
+      DBNAME: nixip2
     depends_on:
       - mongodb
     networks:
