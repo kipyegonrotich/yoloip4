@@ -16,8 +16,7 @@ This project containerizes a simple e-commerce platform with:
 1. **Clone the Repository**
 
     git clone https://github.com/kipyegonrotich/yolo
-    cd yolo
-
+    
 2. **Build and Start Containers**
 
     docker-compose up -d
