@@ -27,6 +27,9 @@ services:
       - mongodb
     networks:
       - mongo-net
+  volumes:
+      - mongo-data:/data/db 
+
 
   # Running the backend container 
   yoloimage:
