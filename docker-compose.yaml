@@ -14,6 +14,8 @@ services:
     tty: true
     ports:
       - "3000:3000"
+    environment:
+      - NODE_OPTIONS=--openssl-legacy-provider
     depends_on: 
       - kipyegonrotich-yolo-backend
     networks:
