@@ -1,30 +1,43 @@
 #install Docker and docker compose plugins
 
 #To launch this app without having to clone the entire repository,use the docker-compose.yaml file to run the app
-version: "3.8"
 
+version: '3.9'
 services:
-  yolo-backend:
-    build: .
-    ports:
-      - "5000:5000"
-    depends_on:
-      - mongo
-    networks:
-      - yolo-network
+# Creating the Mongodb service for the backend
+ mongodb:
+  image: mongo:latest
+  container_name: mongodb_container
+  networks:
+   - mongo-net
+  command:
+  ports:
+   - 27017:27017
+  # Running the frontend container
+ ip2frontend:
+  build: client
+  ports:
+   - 3000:3000
+  environment:
+   PORT: 3000
+   MONGODB_URI : mongodb://mongodb
+   DBNAME : yolomy
+  depends_on:
+   - mongodb
+  # Running the backend container 
+ ip2image:
+   build: backend
+   ports:
+    - 5000:5000
+   environment:
+    PORT: 3000
+    MONGODB_URI : mongodb://mongodb
+    DBNAME : yolomy
+   depends_on:
+   - mongodb
 
-  mongo:
-    image: mongo:latest
-    ports:
-      - "27017:27017"
-    volumes:
-      - app-mongo-data:/data/db
-    networks:
-      - yolo-network
-
-volumes:
-  app-mongo-data:
-
+  # Creating the network for communication
 networks:
-  yolo-network:
-    driver: bridge
+ mongo-net:
+  name: mongo-net
+  driver: bridge
