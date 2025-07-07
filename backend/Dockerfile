@@ -1,6 +1,6 @@
 # Getting small base image for node (alpine)
 
-FROM node:14-alpine
+FROM node:18-alpine
 
 # Executed when building the base image
 

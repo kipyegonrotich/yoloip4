@@ -4,63 +4,27 @@
 version: "3.8"
 
 services:
-
-  #Builds the frontend Docker image and creates the frontend microservice
-  kipyegonrotich-yolo-client:
-    image: kipyegonrotich/kipyegonrotich-yolo-client:v1.0.0
-    build: ./client
-    container_name: kipyegonrotich-yolo-client
-    stdin_open: true
-    tty: true
-    ports:
-      - "3000:3000"
-    environment:
-      - NODE_OPTIONS=--openssl-legacy-provider
-    depends_on: 
-      - kipyegonrotich-yolo-backend
-    networks:
-      - app-net
-
-  #Builds the backend Docker image and creates the backend microservice
-  kipyegonrotich-yolo-backend:
-    image: kipyegonrotich/kipyegonrotich-yolo-backend:v1.0.0
-    build: ./backend
-    container_name: kipyegonrotich-yolo-backend
-    stdin_open: true
-    tty: true
-    restart: always
+  yolo-backend:
+    build: .
     ports:
       - "5000:5000"
-    depends_on: 
-      - app-ip-mongo
+    depends_on:
+      - mongo
     networks:
-      - app-net
+      - yolo-network
 
-  #Creates the database microservice
-  app-ip-mongo:
-    image: mongo
-    container_name: app-mongo
+  mongo:
+    image: mongo:latest
     ports:
       - "27017:27017"
-    networks:
-      - app-net
     volumes:
-      - type: volume
-        source: app-mongo-data
-        target: /data/db
+      - app-mongo-data:/data/db
+    networks:
+      - yolo-network
 
-#Creates the network infrastructure necessary for the containers to communicate with each other
-networks:
-  app-net:
-    name: app-net
-    driver: bridge
-    attachable: true
-    ipam:
-      config:
-        - subnet: 172.20.0.0/16 
-          ip_range: 172.20.0.0/16 
-
-#Creates a Docker volume that persists all the data stored in the database
 volumes:
   app-mongo-data:
-    driver: local
+
+networks:
+  yolo-network:
+    driver: bridge
