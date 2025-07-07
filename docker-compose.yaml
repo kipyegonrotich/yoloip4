@@ -14,7 +14,7 @@ services:
     networks:
       - mongo-net
     volumes:
-      - mongo-data:/data/db 
+      - mongo_data:/data/db 
 
   # Running the frontend container
   yolofrontend:
@@ -44,10 +44,11 @@ services:
     networks:
       - mongo-net
 
+volumes:
+  mongo_data:
+  
 # Creating the network for communication
 networks:
   mongo-net:
     driver: bridge
 
-volumes:
-  mongo-data:
