@@ -18,7 +18,7 @@ services:
 
   # Running the frontend container
   yolofrontend:
-    build: ./client
+    build: kipyegonrotich/yolo-frontend:v1.0.0
     ports:
       - "3000:3000"
     environment:
@@ -34,7 +34,7 @@ services:
 
   # Running the backend container 
   yoloimage:
-    build: ./backend
+    build: kipyegonrotich/yolo-backend:v1.0.0
     environment:
       - MONGO_URI=mongodb://mongodb:27017/nixip2
     ports:
@@ -46,7 +46,7 @@ services:
 
 volumes:
   mongo_data:
-  
+
 # Creating the network for communication
 networks:
   mongo-net:
