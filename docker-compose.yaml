@@ -13,6 +13,8 @@ services:
       - "27017:27017"
     networks:
       - mongo-net
+    volumes:
+      - mongo-data:/data/db 
 
   # Running the frontend container
   yolofrontend:
@@ -27,8 +29,7 @@ services:
       - mongodb
     networks:
       - mongo-net
-  volumes:
-      - mongo-data:/data/db 
+  
 
 
   # Running the backend container 
@@ -47,3 +48,6 @@ services:
 networks:
   mongo-net:
     driver: bridge
+
+volumes:
+  mongo-data:
