@@ -5,7 +5,7 @@
 version: '3.9'
 
 services:
-  # Creating the Mongodb service for the backend
+  # Create Mongodb service
   mongodb:
     image: mongo
     container_name: mongodb_container
@@ -16,7 +16,7 @@ services:
     volumes:
       - mongo_data:/data/db 
 
-  # Running the frontend container
+  # frontend container
   yolofrontend:
     build: kipyegonrotich/yolo-frontend:v1.0.0
     ports:
@@ -32,7 +32,7 @@ services:
   
 
 
-  # Running the backend container 
+  # backend container 
   yoloimage:
     build: kipyegonrotich/yolo-backend:v1.0.0
     environment:
@@ -47,7 +47,7 @@ services:
 volumes:
   mongo_data:
 
-# Creating the network for communication
+# network for communication
 networks:
   mongo-net:
     driver: bridge
