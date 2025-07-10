@@ -48,10 +48,13 @@ cd yolo
 
 ## Build and Launch Containers
 
-Use Docker Compose to build images and start all services:
+- Use Docker Compose to build images. 
+- To start all services run:
 ```bash
 docker compose up
 ```
+Below is a preview of the results once it runs
+
 <img width="1855" height="935" alt="websitescreenshot" src="https://github.com/user-attachments/assets/d2a11e5a-13a7-48fd-acb1-1dcea2d9b26a" />
 
 ## Docker Compose will:
