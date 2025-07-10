@@ -6,16 +6,16 @@ The setup uses Docker and Docker Compose for orchestration, networking, and pers
 ---
 
 ## 📦 Project Structure
-.
-├── backend/ # Backend Node.js API |
-│ └── Dockerfile |
-├── client/ # Frontend application |
-│ └── Dockerfile |
-├── docker-compose.yml # Orchestrates services |
-├── .dockerignore |
-├── explanation.md # Technical documentation and reasoning |
-└── README.md |
-
+```.
+├── backend/ # Backend Node.js API 
+│ └── Dockerfile 
+├── client/ # Frontend application 
+│ └── Dockerfile 
+├── docker-compose.yml # Orchestrates services 
+├── .dockerignore 
+├── explanation.md # Technical documentation and reasoning 
+└── README.md 
+```
 ---
 
 ## Features
