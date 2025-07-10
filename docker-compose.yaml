@@ -16,10 +16,7 @@ services:
 
   #2.frontend container
   yolofrontend:
-    build: 
-    context: ./frontend
-    dockerfile: Dockerfile
-    image: kipyegonrotich/yolo-frontend:v1.0.0
+    build: kipyegonrotich/yolo-frontend:v1.0.0
     ports:
       - "3000:3000"
     environment:
@@ -35,10 +32,7 @@ services:
 
   # 3. backend container 
   yoloimage:
-    build: 
-    context: ./backend
-    dockerfile: Dockerfile
-    image: kipyegonrotich/yolo-backend:v1.0.0
+    build: kipyegonrotich/yolo-backend:v1.0.0
     environment:
       - MONGO_URI=mongodb://mongodb:27017/nixip2
     ports:
