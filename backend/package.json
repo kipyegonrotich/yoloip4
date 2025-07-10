@@ -1,25 +1,22 @@
 {
-  "name": "yolo_app",
+  "name": "yolo_backend",
   "version": "1.0.0",
-  "description": "Yolomy app built with MERN stack",
+  "description": "Yolomy Express backend API",
   "main": "server.js",
   "scripts": {
-    "client-install": "npm install --prefix client",
     "start": "node server.js",
-    "server": "nodemon server.js",
-    "client": "npm start --prefix  ../client",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
-  },
-  "repository": {
+    "dev": "nodemon server.js"
+
+  },  "repository": {
     "type": "git",
-    "url": "https://github.com/Vinge1718/yolo.git"
+    "url": "https://github.com/kipyegonrotich/yolo.git"
   },
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Vinge1718/yolo/issues"
+    "url": "https://github.com/kipyegonrotich/yolo.git"
   },
-  "homepage": "https://github.com/Vinge1718/yolo#readme",
+  "homepage": "https://github.com/kipyegonrotich/yolo.git",
   "dependencies": {
     "body-parser": "^1.19.0",
     "concurrently": "^5.2.0",
