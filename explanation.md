@@ -32,7 +32,7 @@ This document explains the reasoning behind my implementation of containerizing 
     - `RUN npm install` to install dependencies.
     - `EXPOSE` declares the port.
     - `CMD ["npm", "start"]` to start the server.
- 
+- For the frontend, a multistage build is used to further reduce the final image size.
     ---
 
 ## 3. Docker Compose Networking
@@ -40,9 +40,11 @@ This document explains the reasoning behind my implementation of containerizing 
 - **Custom Bridge Network**: `mongo-net`
   - This allows the services to communicate internally via their container names (`mongodb`, `yoloimage`, `yolofrontend`).
 - **Ports**
-  - MongoDB: `27017`
-  - Backend API: `5000`
-  - Frontend App: `3000`
+    - MongoDB is exposed on port `27017`.
+    - The backend API runs on port `5000`.
+    - The frontend app runs on port `3000`.
+
+- This configuration ensures each service is accessible as needed.
 
  ---
 
@@ -58,7 +60,7 @@ This document explains the reasoning behind my implementation of containerizing 
 ## 5. Git Workflow
 
 - **Commits**
-  - The repository uses descriptive commits for each step: examples below shows some descriptive commits
+  - I used descriptive commits for each step to be able to track progress clearly: examples below shows some descriptive commits
  
  ```bash
   git commit -m "configure docker compose to build image with semantic versioning"
@@ -80,7 +82,9 @@ This document explains the reasoning behind my implementation of containerizing 
   - Builds all images.
   - Launches MongoDB, the backend, and the frontend.
   - Ensures persistence via `mongo_data`.
-  - Exposes ports to test the frontend UI and backend API.
+  - Exposes the necessary ports for testing the services.
+
+
   - Application is accessible on:
     - Frontend: `http://localhost:3000`
     - Backend API: `http://localhost:5000`
@@ -96,10 +100,10 @@ This document explains the reasoning behind my implementation of containerizing 
 ## 7. Good Practices
 
 - **Semantic Versioning**
-  - Images are tagged with `v1.0.0` 
+  - Images are tagged with version identifier i.e `v1.0.0` for easier traceability and rollback if necessary.
   - screnshots of tags shown below
 - **Minimal Base Images**
-  - All images based on alpine variants.
+  - All images based on alpine variants to reduce image and improve sescurity.
 
 ---
 ## Screenshot of Deployed Image on DockerHub
