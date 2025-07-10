@@ -89,7 +89,7 @@ Frontend Image Screenshot
 
 ## Project Status
 
-**✅ Docker Compose builds and runs successfully**
-**✅ Data persists in MongoDB across container restarts**
-**✅ Semantic versioning implemented**
-**✅ Good containerization practices followed**
+## ✅ Docker Compose builds and runs successfully
+## ✅ Data persists in MongoDB across container restarts
+## ✅ Semantic versioning implemented
+## ✅ Good containerization practices followed
