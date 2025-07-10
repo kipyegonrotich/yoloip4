@@ -39,14 +39,14 @@ The setup uses Docker and Docker Compose for orchestration, networking, and pers
 
 Follow the steps below to build and run the application.
 
-## 1 Clone the Repository
+## Clone the Repository
 
 ```bash
 git clone https://github.com/kipyegonrotich/yolo.git
 cd yolo
 ```
 
-## 2 Build and Launch Containers
+## Build and Launch Containers
 
 Use Docker Compose to build images and start all services:
 ```bash
@@ -64,7 +64,7 @@ docker compose up
 
     Create a custom bridge network (mongo-net)
 
-## 3 Access the Application
+## Access the Application
 
 After all services start successfully:
 
