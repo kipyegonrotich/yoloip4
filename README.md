@@ -87,3 +87,9 @@ Backend Image Screenshot
 Frontend Image Screenshot
 <img width="1855" height="935" alt="Frontend" src="https://github.com/user-attachments/assets/fc67bf74-0bfa-418c-9803-5167baf369fa" />
 
+## Project Status
+
+✅ Docker Compose builds and runs successfully
+✅ Data persists in MongoDB across container restarts
+✅ Semantic versioning implemented
+✅ Good containerization practices followed
