@@ -93,4 +93,4 @@ This document explains the reasoning behind my implementation of containerizing 
 
 ---
 ## Screenshot of Deployed Image on DockerHub
-![alt text](backend-1.png) ![alt text](Frontend-1.png)
+![alt text](backend.png)![alt text](Frontend.png)
