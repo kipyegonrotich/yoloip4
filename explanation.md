@@ -59,9 +59,10 @@ This document explains the reasoning behind my implementation of containerizing 
 
 - **Commits**
   - The repository uses descriptive commits for each step: examples below shows some descriptive commits
+ 
  ```bash
   git commit -m "configure docker compose to build image with semantic versioning"
-   git commit -m "New change on docker compose not working, revert back"
+  git commit -m "New change on docker compose not working, revert back"
   git commit -m "Create a Docker file for the frontend services
   git commit -m "Add multistage build to reduce image size"
   git commit -m "Configure the mongodb to point to the correct database name"
