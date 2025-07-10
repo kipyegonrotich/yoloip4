@@ -3,8 +3,7 @@ FROM node:18-alpine AS builder
 
 # Define working directory 
 WORKDIR /usr/src/app
-# Copy package.json 
-COPY package*.json ./
+
 #Install dependencies
 RUN npm install
 # Copy backend code to the working directory
