@@ -54,7 +54,7 @@ docker compose up
 ```
 <img width="1855" height="935" alt="websitescreenshot" src="https://github.com/user-attachments/assets/d2a11e5a-13a7-48fd-acb1-1dcea2d9b26a" />
 
-Docker Compose will:
+## Docker Compose will:
 
     Build the backend and frontend images
 
