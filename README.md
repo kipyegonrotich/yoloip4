@@ -5,14 +5,13 @@ The setup uses Docker and Docker Compose for orchestration, networking, and pers
 
 ---
 
-## 📦 Project Structure
+## Project Structure
 ```.
 ├── backend/ # Backend Node.js API 
 │ └── Dockerfile 
 ├── client/ # Frontend application 
 │ └── Dockerfile 
 ├── docker-compose.yml # Orchestrates services 
-├── .dockerignore 
 ├── explanation.md # Technical documentation and reasoning 
 └── README.md 
 ```
@@ -25,7 +24,7 @@ The setup uses Docker and Docker Compose for orchestration, networking, and pers
 - **MongoDB** database with persistent storage
 - **Custom bridge network** for inter-container communication
 - **Semantic versioning** of Docker images
-- Clear documentation and good practices
+- **Clear documentation and good practices**
 
 ---
 
@@ -74,7 +73,7 @@ After all services start successfully:
     Backend API: http://localhost:5000
 
     MongoDB: Accessible via mongodb://localhost:27017
-Docker Hub Images
+## Docker Hub Images
 
 Images are tagged and published to Docker Hub:
 
