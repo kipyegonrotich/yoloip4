@@ -5,23 +5,28 @@ const multer = require('multer');
 const upload = multer();
 const config = require('./_config');
 
+
+
 const productRoute = require('./routes/api/productRoute');
 
 // Connecting to the Database
-const environment = 'development';
-let mongoURI = config.mongoURI[environment];
+const mongoURI = process.env.MONGO_URI || config.mongoURI['development'];
+//const environment = 'development';
+//let mongoURI = config.mongoURI[environment];
 //let dbName = 'yolomy';
 
 // define a url to connect to the database
-mongoose.connect(mongoURI.replace('mongodb://', 'mongodb+srv://'), {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-}, (err) => {
+mongoose.connect(
+  mongoURI,
+  { useNewUrlParser: true, useUnifiedTopology: true },
+  (err) => {
     if (err) {
-        console.error('MongoDB connection error:', err);
-        process.exit(1);
+      console.error('MongoDB connection error:', err);
+      process.exit(1);
     }
-});
+  }
+);
+
 
 // Log successful DB connection
 mongoose.connection.once('open', () => {
