@@ -2,6 +2,12 @@
 
 This project containerizes an e-commerce platform consisting of a Node.js backend, a frontend application, and a MongoDB database. 
 The setup uses Docker and Docker Compose for orchestration, networking, and persistent data storage.
+It demonstrates key Docker concepts:
+- Multi-container orchestration with Docker Compose  
+- Custom bridge networks  
+- Persistent MongoDB volumes  
+- Semantic versioning and image deployment to DockerHub  
+- Minimalist base images for optimal size 
 
 ---
 
