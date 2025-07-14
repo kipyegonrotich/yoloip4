@@ -4,7 +4,7 @@ This document explains the reasoning behind my implementation of containerizing 
 
 ---
 
-## 1. Choice of the Base Images
+## 1. Image Selection
 
 - **MongoDB**
   - Image: `mongo` (I used `mongo` without specifying the tag to default to the latest stable version)
@@ -21,7 +21,7 @@ This document explains the reasoning behind my implementation of containerizing 
   - Rationale: Same reason—minimal footprint and fast deployment.
   ---
 
-## 2. Dockerfile Directives
+## 2. Dockerfile structure
 
 - **Backend and Frontend**
  - For the two Dockerfiles I adopted a similar structure i.e for both Backend and Frontend
@@ -35,7 +35,7 @@ This document explains the reasoning behind my implementation of containerizing 
 - For the frontend, a multistage build is used to further reduce the final image size.
     ---
 
-## 3. Docker Compose Networking
+## 3. Docker Compose Networking structure
 
 - **Custom Bridge Network**: `mongo-net`
   - This allows the services to communicate internally via their container names (`mongodb`, `yoloimage`, `yolofrontend`).
@@ -48,7 +48,7 @@ This document explains the reasoning behind my implementation of containerizing 
 
  ---
 
-## 4. Docker Compose Volume Definition
+## 4. Docker Compose Volume structure
 
 - **MongoDB Data Volume**
   - Named volume: `mongo_data`
