@@ -1,0 +1,3 @@
+# roles/frontend client container deployment/vars/main.yml
+---
+frontend_build_path: /home/vagrant/yolo/client

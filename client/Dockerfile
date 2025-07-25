@@ -1,16 +1,20 @@
-# Get small image for node (alpine)
-FROM node:18-alpine AS builder
-# Define working directory 
+# Use the exact Node version required
+FROM node:16
+
+# Set working directory
 WORKDIR /usr/src/frontend
-# Copy package.json 
+
+# Copy package files and install dependencies
 COPY package*.json ./
-#Install dependencies
 RUN npm install
-# Copy code to the working directory
-COPY . /usr/src/frontend
 
+# Copy source code
+COPY . .
 
-# Expose container to the correct port number 
+# Expose frontend port
 EXPOSE 3000
-# Triggers when the container starts from the image
-CMD ["npm","start"]
+
+ENV CI=true
+
+# Start the frontend
+CMD ["npm", "start"]
