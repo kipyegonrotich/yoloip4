@@ -1,9 +1,18 @@
----
+# Play 1: Ensure Docker network exists
+- name: Ensure Docker network exists
+  hosts: all
+  become: true
+  tasks:
+    - name: Create Docker network app-net
+      community.docker.docker_network:
+        name: app-net
+        state: present
+
+# Play 2: Run role-based deployments
 - name: IP3 Ansible playbook
   hosts: all
   become: true
   roles: 
-    - mongodb setup 
-    - frontend client container deployment
-    - backend container deployment
-    
+    - mongodb
+    - frontend
+    - backend
