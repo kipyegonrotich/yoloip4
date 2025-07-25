@@ -1,0 +1,8 @@
+---
+- name: IP3 Ansible playbook
+  hosts: all
+  become: true
+  roles: 
+    - mongodb setup 
+    - frontend client container deployment
+    - backend container deployment
