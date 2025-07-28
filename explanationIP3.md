@@ -93,7 +93,7 @@ Common Troubleshooting
 View container logs:
 
 ```bash
-docker logs <container_name>
+docker logs mongodb_container
 ```
 
 Rebuild the frontend image:
@@ -106,13 +106,15 @@ docker build -t kipyegonrotich/yolo-frontend:v1.0.0 .
 Remove a crashed container:
 
 ```bash
-docker rm <container_name>
+docker rm kipyegonrotich/yolo-backend:v1.0.0
+
 ```
 
 Remove an image to rebuild fresh:
 
 ```bash
-docker rmi <image_id>
+docker rmi kipyegonrotich/yolo-backend:v1.0.0
+
 ```
 
 Restart all containers:
