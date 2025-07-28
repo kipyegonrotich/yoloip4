@@ -47,9 +47,9 @@ project-root/
 └── README.md 
 ```
 
-## Documentation
 ---
-## 📄 Documentation
+## Documentation
 
 - [IP2 Docker Containerization](./explanationIP2.md)
+
 - [IP3 Vagrant and Ansible](./explanationIP3.md)
