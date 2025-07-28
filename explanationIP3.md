@@ -77,16 +77,16 @@ This playbook will:
 Access Points
 ```
 Component	Address
-Frontend	http://localhost:3000
-Backend	    http://localhost:5000
-MongoDB	    localhost:27017 (Docker internal)
+Frontend    http://localhost:3000
+Backend     http://localhost:5000
+MongoDB     localhost:27017 (Docker internal)
 ```
 Docker Containers
 ```
-Name	            Image	                            Purpose
-mongodb_container	mongo:latest	                    NoSQL Database
-yolo-backend	    kipyegonrotich/yolo-backend:v1.0.0	Backend API
-yolofrontend	    kipyegonrotich/yolo-frontend:v1.0.0	React App UI
+Name                Image                               Purpose
+mongodb_container   mongo                               NoSQL Database
+yolo-backend        kipyegonrotich/yolo-backend:v1.0.0  Backend API
+yolofrontend        kipyegonrotich/yolo-frontend:v1.0.0 React App UI
 ```
 Common Troubleshooting
 
