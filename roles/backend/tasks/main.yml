@@ -12,28 +12,3 @@
     networks:
       - name: app-net
 
-
-
-
-
-
-
-
-
-
-#name: Pull image from repository
- # docker_image:
-  #  name: kipyegonrotich/yolo-backend
-   # tag: v1.0.0
-    #source: pull
-
-#- name: Create Node.js Backend Container
- # docker_container:
-  #  name: yoloimage
-   # image: kipyegonrotich/yolo-backend:v1.0.0
-    #networks:
-     # - name: app-net
-    #ports:
-     # - "5000:5000"
-    #command: "npm start"
-  #become: yes

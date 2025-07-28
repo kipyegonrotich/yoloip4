@@ -19,3 +19,7 @@
       - "27017:27017"
     networks:
       - name: app-net
+    
+    #Ensure uploaded products persist
+    volumes:
+      - mongo-data:/data/db   
