@@ -13,7 +13,7 @@ This project automates the deployment of a containerized e-commerce dashboard us
 ---
 
 ## Project Structure
-
+```
 project-root/
 ├── Vagrantfile
 ├── playbook.yml
@@ -30,7 +30,7 @@ project-root/
 ├── yolo/
 │ ├── backend/ # Node.js backend
 │ └── client/ # React frontend
-
+```
 
 ---
 
