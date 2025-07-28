@@ -51,5 +51,5 @@ project-root/
 ---
 | Project                        | File                                              |
 | ------------------------------ | ------------------------------------------------- |
-| IP2 DOCKER Containerization    |  explanationIP2.md
-| IP3 Vagrant and Ansible        |  explanationIP3.md                                |
+| IP2 DOCKER Containerization    |  https://explanationIP2.md
+| IP3 Vagrant and Ansible        |  https://explanationIP3.md                                |
