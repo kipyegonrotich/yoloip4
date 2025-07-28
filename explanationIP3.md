@@ -1,4 +1,4 @@
-# IP3 App Deployment with Ansible and Vagrant 
+# IP3 Configuration Management - Deployment with Ansible and Vagrant 
 
 This project automates the deployment of a containerized e-commerce dashboard using **Vagrant** and **Ansible**. The app consists of a MongoDB database, a Node.js backend API, and a React frontend.
 
@@ -93,7 +93,24 @@ yolofrontend        kipyegonrotich/yolo-frontend:v1.0.0 React App UI
 ```
 ![alt text](dockerpssc.png)
 
-Common Troubleshooting
+### Git Workflow
+Commits
+Descriptive commits for each step to be able to track progress clearly: examples below shows some descriptive commits
+```
+git commit -m "deleted original files that existed to allow me create mine"
+git commit -m "Created new vagrantfile"
+git commit -m "define the roles that will be provisioned"
+git commit -m "create tasks under roles for each container and database"
+git commit -m "add tasks to the playbook to be executed under roles"
+git commit -m "create a task to provision MongoDB database container"
+git commit -m "define ansible role that spins up the MongoDB container"
+git commit -m "define ansible role that spins up the frontend and backend containers"
+git commit -m "add persistency to ensure that the uploaded products are not lost when restarted"
+git commit -m "Add screenshot of results from various stages"
+
+```
+
+### Common Troubleshooting
 
 View container logs:
 
@@ -128,7 +145,7 @@ Restart all containers:
 docker restart $(docker ps -q)
 ```
 
-Notes
+### Notes
 
 MongoDB uses Docker volumes for persistent storage, so product data remains intact even after halting or restarting Vagrant.
 

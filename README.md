@@ -50,6 +50,6 @@ project-root/
 ---
 ## Documentation
 
-- [IP 2 Creating a Basic Micro-service](./explanationIP2.md)
+- [IP 2 Creating a Basic Micro-service - Explanation of steps undertaken to create a Basic Micro-service](./explanationIP2.md)
 
-- [IP 3 Configuration Management](./explanationIP3.md)
+- [IP 3 Configuration Management - IP3 Configuration Management - Deployment with Ansible and Vagrant ](./explanationIP3.md)
