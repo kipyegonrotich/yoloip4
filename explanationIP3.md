@@ -36,7 +36,7 @@ project-root/
 ### Vagrantfile setup
 The Vagrantfile defines the VM configuration and triggers Ansible provisioning
 
-# Vagrant Box:
+### Vagrant Box:
 
 ```
      "config.vm.box = "geerlingguy/ubuntu2004"" 
@@ -49,7 +49,7 @@ Network:
 ```
 Maps vagrant VM ports (3000, 5000, 27017) to host ports to enable access
 
-# Ansible Provisioner:
+### Ansible Provisioner:
    ```
     config.vm.synced_folder ".", "/home/vagrant/yolo"
 
@@ -79,9 +79,9 @@ Ensure Docker Network Exists
 
 - Create a Docker network named <app-net> using the <community.docker.docker_network> module
 
-        If it doesn’t exist, Ansible creates it
+    If it doesn’t exist, Ansible creates it
 
-        If it already exists, Ansible does nothing
+    If it already exists, Ansible does nothing
         
 Run Role-Based Deployments
 
@@ -100,11 +100,11 @@ Run Role-Based Deployments
 
 - Apply the following Ansible roles in order:
 
-    <mongodb>: deploys MongoDB container
+    mongodb: deploys MongoDB container
 
-    <frontend>: deploys the frontend container (React)
+    frontend: deploys the frontend container (React)
 
-    <backend>: deploys the backend container (Node.js)
+    backend: deploys the backend container (Node.js)
 
 # Result
 - A Docker network <app-net> is created for communication between containers
