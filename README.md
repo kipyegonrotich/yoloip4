@@ -50,6 +50,6 @@ project-root/
 ---
 ## Documentation
 
-- [IP2 Docker Containerization](./explanationIP2.md)
+- [IP 2 Creating a Basic Micro-service](./explanationIP2.md)
 
-- [IP3 Vagrant and Ansible](./explanationIP3.md)
+- [IP 3 Configuration Management](./explanationIP3.md)
