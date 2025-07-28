@@ -44,8 +44,8 @@ Run from the host machine:
 vagrant up 
 vagrant provision
 ```
-![alt text](vagrantupsc.png)
-![alt text](vagrantprovisionsc.png)
+![alt text](vagrantupsc-1.png)
+![alt text](vagrantprovisionsc-1.png)
 This will:
 
     Provision the VM running Ubuntu 20.04
@@ -58,6 +58,7 @@ This will:
 ```bash
 vagrant ssh
 ```
+![alt text](vagrantsshsc-1.png)
 
 ### 3. Execute the Ansible Playbook
 
@@ -90,7 +91,7 @@ mongodb_container   mongo                               NoSQL Database
 yolo-backend        kipyegonrotich/yolo-backend:v1.0.0  Backend API
 yolofrontend        kipyegonrotich/yolo-frontend:v1.0.0 React App UI
 ```
-![alt text](vagrantsshsc.png)
+![alt text](dockerpssc.png)
 
 Common Troubleshooting
 
