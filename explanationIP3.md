@@ -62,6 +62,10 @@ Maps vagrant VM ports (3000, 5000, 27017) to host ports to enable access
 Executes <playbook.yaml> to provision the VM
 
 ### Playbook setup
+Clone yolo project repository
+
+**This play ensures the target machine is ready by installing Git and cloning the source code for the e-commerce project. It's a setup step before deploying the app (MongoDB, frontend, backend).**
+
 Ensure Docker Network Exists
 ```
 - name: Ensure Docker network exists
@@ -227,6 +231,8 @@ docker restart $(docker ps -q)
 ### Notes
 
 MongoDB uses Docker volumes for persistent storage, so product data remains intact even after halting or restarting Vagrant.
+
+This is defined in roles/task/main.yml
 
 ![alt text](websitescreenshot.png)
 ![alt text](productlist.png)

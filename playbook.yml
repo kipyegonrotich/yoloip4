@@ -1,4 +1,24 @@
-# Play 1: Ensure Docker network exists
+---
+# Play 1: Clone the yolo GitHub repository
+- name: Clone yolo project repository
+  hosts: all
+  become: true
+  tasks:
+    - name: Ensure Git is installed
+      apt:
+        name: git
+        state: present
+        update_cache: yes
+      tags: git
+
+    - name: Clone yolo project repository
+      git:
+        repo: https://github.com/kipyegonrotich/yolo.git
+        dest: /home/vagrant/yolo
+        version: master
+      tags: clone
+
+# Play 2: Ensure Docker network exists
 - name: Ensure Docker network exists
   hosts: all
   become: true
@@ -8,7 +28,7 @@
         name: app-net
         state: present
 
-# Play 2: Run role-based deployments
+# Play 3: Run role-based deployments
 - name: IP3 Ansible playbook
   hosts: all
   become: true
