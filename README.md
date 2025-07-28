@@ -49,7 +49,7 @@ project-root/
 
 ## Documentation
 ---
-| Project                        | File                                                             |
-| ------------------------------ | -------------------------------------------------                |
-| IP2 DOCKER Containerization    |  /home/nix/development/code/dev10/docker/yolo/explanationIP2.md
-| IP3 Vagrant and Ansible        |  /home/nix/development/code/dev10/docker/yolo/explanationIP3.md  |
+## 📄 Documentation
+
+- [IP2 Docker Containerization](./explanationIP2.md)
+- [IP3 Vagrant and Ansible](./explanationIP3.md)
