@@ -71,8 +71,11 @@ Ensure Docker Network Exists
         state: present
 ```
 Target all hosts (<hosts: all>)
+
 Use <become: true> → Run commands as root
+
 Create a Docker network named <app-net> using the <community.docker.docker_network> module
+
         If it doesn’t exist, Ansible creates it
 
         If it already exists, Ansible does nothing
@@ -89,15 +92,22 @@ Run Role-Based Deployments
     - backend
 ```
 Target all hosts again
+
 Use <become: true> for root access
+
 Apply the following Ansible roles in order:
+
     <mongodb>: deploys MongoDB container
+
     <frontend>: deploys the frontend container (React)
+
     <backend>: deploys the backend container (Node.js)
 
 # Result
 A Docker network <app-net> is created for communication between containers
+
 MongoDB, backend, and frontend services are each deployed in their own containers
+
 All containers are attached to <app-net>, enabling them to talk to each other
 
 ## Deployment process 
