@@ -1,4 +1,4 @@
-# 🛒 Yolo E-commerce Platform: Containerization + Automated Deployment
+# Docker, Ansible and Vagrant: Containerization and Automated Deployment
 
 This project containerizes and automates the deployment of an e-commerce platform called **Yolo**, consisting of:
 
