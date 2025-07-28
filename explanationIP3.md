@@ -106,7 +106,7 @@ Run Role-Based Deployments
 
     backend: deploys the backend container (Node.js)
 
-# Result
+### Result
 - A Docker network <app-net> is created for communication between containers
 
 - MongoDB, backend, and frontend services are each deployed in their own containers
