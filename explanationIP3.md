@@ -43,7 +43,7 @@ Run from your host machine:
 ```bash
 vagrant up 
 vagrant provision
-
+```
 This will:
 
     Provision a VM running Ubuntu 20.04
@@ -52,15 +52,17 @@ This will:
 
     Prepare the environment for deployment
 
-2. Access the Virtual Machine
-
+### 2. Access the Virtual Machine
+```bash
 vagrant ssh
+```
 
-3. Execute the Ansible Playbook
+### 3. Execute the Ansible Playbook
 
 Inside the VM:
 ```bash
 ansible-playbook playbook.yml
+```
 
 This playbook will:
 
@@ -90,27 +92,32 @@ View container logs:
 
 ```bash
 docker logs <container_name>
+```
 
 Rebuild the frontend image:
 
 ```bash
 cd yolo/client
 docker build -t kipyegonrotich/yolo-frontend:v1.0.0 .
+``` 
 
 Remove a crashed container:
 
 ```bash
 docker rm <container_name>
+```
 
 Remove an image to rebuild fresh:
 
 ```bash
 docker rmi <image_id>
+```
 
 Restart all containers:
 
 ```bash
 docker restart $(docker ps -q)
+```
 
 Notes
 
