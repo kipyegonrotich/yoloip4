@@ -38,15 +38,17 @@ project-root/
 
 ### 1. Provision the Virtual Machine
 
-Run from your host machine:
+Run from the host machine:
 
 ```bash
 vagrant up 
 vagrant provision
 ```
+![alt text](vagrantupsc.png)
+![alt text](vagrantprovisionsc.png)
 This will:
 
-    Provision a VM running Ubuntu 20.04
+    Provision the VM running Ubuntu 20.04
 
     Install Docker and Ansible
 
@@ -88,6 +90,8 @@ mongodb_container   mongo                               NoSQL Database
 yolo-backend        kipyegonrotich/yolo-backend:v1.0.0  Backend API
 yolofrontend        kipyegonrotich/yolo-frontend:v1.0.0 React App UI
 ```
+![alt text](vagrantsshsc.png)
+
 Common Troubleshooting
 
 View container logs:
@@ -127,4 +131,6 @@ Notes
 
 MongoDB uses Docker volumes for persistent storage, so product data remains intact even after halting or restarting Vagrant.
 
-
+![alt text](websitescreenshot.png)
+![alt text](productlist.png)
+![alt text](addedproductsc.png)
