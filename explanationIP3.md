@@ -62,11 +62,11 @@ Maps vagrant VM ports (3000, 5000, 27017) to host ports to enable access
 Executes <playbook.yaml> to provision the VM
 
 ### Playbook setup
-**Clone yolo project repository**
+**Play 1. Clone yolo project repository**
 
 This play ensures the target machine is ready by installing Git and cloning the source code for the e-commerce project. It's a setup step before deploying the app (MongoDB, frontend, backend).
 
-**Ensure Docker Network Exists**
+**Play 2. Ensure Docker Network Exists**
 ```
 - name: Ensure Docker network exists
   hosts: all
@@ -87,7 +87,7 @@ This play ensures the target machine is ready by installing Git and cloning the 
 
     If it already exists, Ansible does nothing
         
-**Run Role-Based Deployments**
+**Play 3 Run Role-Based Deployments**
 
 ```
     - name: IP3 Ansible playbook
