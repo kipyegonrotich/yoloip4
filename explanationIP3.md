@@ -35,8 +35,11 @@ project-root/
 ---
 ### Vagrantfile setup
 The Vagrantfile defines the VM configuration and triggers Ansible provisioning
+
+# Vagrant Box:
+
 ```
-    Vagrant Box: - "config.vm.box = "geerlingguy/ubuntu2004"" 
+     "config.vm.box = "geerlingguy/ubuntu2004"" 
 ```
 Network:
 ```
@@ -46,7 +49,7 @@ Network:
 ```
 Maps vagrant VM ports (3000, 5000, 27017) to host ports to enable access
 
-Ansible Provisioner:
+# Ansible Provisioner:
    ```
     config.vm.synced_folder ".", "/home/vagrant/yolo"
 
@@ -70,11 +73,11 @@ Ensure Docker Network Exists
         name: app-net
         state: present
 ```
-Target all hosts (<hosts: all>)
+- Target all hosts (<hosts: all>)
 
-Use <become: true> → Run commands as root
+- Use <become: true> → Run commands as root
 
-Create a Docker network named <app-net> using the <community.docker.docker_network> module
+- Create a Docker network named <app-net> using the <community.docker.docker_network> module
 
         If it doesn’t exist, Ansible creates it
 
@@ -91,11 +94,11 @@ Run Role-Based Deployments
     - frontend
     - backend
 ```
-Target all hosts again
+- Target all hosts again
 
-Use <become: true> for root access
+- Use <become: true> for root access
 
-Apply the following Ansible roles in order:
+- Apply the following Ansible roles in order:
 
     <mongodb>: deploys MongoDB container
 
@@ -104,11 +107,11 @@ Apply the following Ansible roles in order:
     <backend>: deploys the backend container (Node.js)
 
 # Result
-A Docker network <app-net> is created for communication between containers
+- A Docker network <app-net> is created for communication between containers
 
-MongoDB, backend, and frontend services are each deployed in their own containers
+- MongoDB, backend, and frontend services are each deployed in their own containers
 
-All containers are attached to <app-net>, enabling them to talk to each other
+- All containers are attached to <app-net>, enabling them to talk to each other
 
 ## Deployment process 
 
