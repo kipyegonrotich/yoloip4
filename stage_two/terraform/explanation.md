@@ -49,7 +49,7 @@ terraform  apply
 
 ```
 
-- Verify Deployment
+Verify Deployment
 - MongoDB: Port 27017 (internal)
 - Backend API: Accessible via port 5000
 - Frontend: Accessible via port 3000
