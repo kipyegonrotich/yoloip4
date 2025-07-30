@@ -1,12 +1,59 @@
 # Explanation of Terraform-Ansible Integration (Stage Two)
 
-This document explains how Terraform and Ansible work together to automate the provisioning and configuration of the Yolo E-commerce application environment.
+This stage demonstrates the use of **Terraform and Ansible** together to deploy the YOLO E-commerce Dockerized application. Unlike Stage One, which uses **Vagrant for provisioning**
 
 ## Objective
-
 Automate deployment of the Dockerized app (MongoDB + backend + frontend) using:
-- **Terraform** for infrastructure provisioning
+
+- **Terraform** for infrastructure provisioning to orchestrate the deployment workflow triggering **Ansible playbooks** from within Terraform using `local-exec`
+
 - **Ansible** for configuration management and container orchestration
+
+## Project Structure
+
+ stage_two/
+
+├── ansible/
+
+│ ├── inventory.yml
+
+│ ├── playbook.yml
+
+│ └── roles/
+
+│ ├── mongodb/
+
+│ ├── backend/
+
+│ └── frontend/
+
+└── terraform/
+
+└── main.tf
+
+## 🚀 How to Deploy
+
+### 1. Ensure your VM is running (e.g., via Vagrant)
+
+```bash
+vagrant  up
+
+```
+Navigate to the Terraform directory
+
+```bash
+
+cd  stage_two/terraform
+terraform  init
+terraform  apply
+
+```
+
+Verify Deployment
+MongoDB: Port 27017 (internal)
+Backend API: Accessible via port 5000
+Frontend: Accessible via port 3000
+Visit http://127.0.0.1:3000 from the browser.
 
 ## How It Works
 
