@@ -31,7 +31,7 @@ Automate deployment of the Dockerized app (MongoDB + backend + frontend) using:
 
 └── main.tf
 
-## 🚀 How to Deploy
+## How to Deploy
 
 ### 1. Ensure your VM is running (e.g., via Vagrant)
 
