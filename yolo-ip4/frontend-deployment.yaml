@@ -13,7 +13,7 @@ spec:
         app: frontend
     spec:
       containers:
-        - name: frontend
-          image: kipyegonrotich/yolo-frontend:v1.0.0
+        - name: yolo-frontend
+          image: kipyegonrotich/yolo-frontend:v1.0.1
           ports:
             - containerPort: 3000
