@@ -1,5 +1,5 @@
-# Step 1: Build the React frontend with env var
-FROM node:16 AS build
+# Stage 1: Build the React app
+FROM node:16 as builder
 
 ARG REACT_APP_BACKEND_URL
 ENV REACT_APP_BACKEND_URL=$REACT_APP_BACKEND_URL
@@ -11,18 +11,17 @@ RUN npm install
 
 COPY . .
 
-# This is where your REACT_APP_BACKEND_URL is baked into the build
+# Create a production build
 RUN npm run build
 
-# Step 2: Serve the production build with nginx
+# Stage 2: Serve the app using Nginx
 FROM nginx:alpine
 
-# Copy React production build to Nginx html folder
-COPY --from=build /app/build /usr/share/nginx/html
+# Copy build artifacts to Nginx's web directory
+COPY --from=builder /app/build /usr/share/nginx/html
 
-# Optional: Custom nginx config for SPA routing
-COPY nginx.conf /etc/nginx/conf.d/default.conf
-
+# Expose port 80
 EXPOSE 80
 
+# Start Nginx
 CMD ["nginx", "-g", "daemon off;"]
