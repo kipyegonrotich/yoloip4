@@ -1,26 +1,18 @@
-# Get small image for node (alpine)
-FROM node:18-alpine AS builder
+# Use official Node.js base image
+FROM node:18
 
-# Define working directory 
-WORKDIR /usr/src/app
+# Set working directory
+WORKDIR /app
 
-# Copy package.json 
+# Copy package.json and install dependencies
 COPY package*.json ./
-
-#Install dependencies
 RUN npm install
-# Copy backend code to the working directory
-COPY . /usr/src/app
 
-# Add muilt stage
-FROM node:18-alpine
-# Define working directory
-WORKDIR /usr/src/app
-# Copy backend code to the working directory
-COPY --from=builder /usr/src/app ./
+# Copy app source
+COPY . .
 
-# Expose container to the correct port number 
+# Expose port (make sure this matches the one your app listens on)
 EXPOSE 5000
 
-# Triggers when the container starts from the image
-CMD ["node","server.js"]
+# Start the app
+CMD ["npm", "start"]
