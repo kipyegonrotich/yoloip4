@@ -1,68 +1,72 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# YOLO E-commerce App IP 4 Orchestration 
 
-## Available Scripts
+This project demonstrates the deployment of the Dockerized YOLO E-commerce application to **Google Kubernetes Engine (GKE)** using Kubernetes manifests. The setup includes:
 
-In the project directory, you can run:
+- MongoDB as a **StatefulSet** with persistent storage
+- Frontend and backend services exposed via **LoadBalancers**
+- Docker images stored on **Docker Hub**
 
-### `npm start`
+## Application Components
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- **MongoDB** – NoSQL database deployed via StatefulSet
+- **Backend** – Express.js API server
+- **Frontend** – React.js web UI
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Deployment Architecture
 
-### `npm test`
+```plaintext
++------------------+        +----------------+        +----------------+
+|  Frontend Pod    | <----> |  Backend Pod   | <----> |   MongoDB Pod  |
+| (LoadBalancer)   |        | (LoadBalancer) |        | (StatefulSet)  |
++------------------+        +----------------+        +----------------+
+```
+## Prerequisites
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+-   Google Cloud SDK
+    
+-   Docker & Docker Hub account
+    
+-   GKE Cluster and `kubectl` configured
+    
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Folder Structure
+yolo-ip4/
+│   ├── mongo-statefulset.yaml
+│   ├── mongo-service.yaml
+│   ├── backend-deployment.yaml
+│   ├── backend-service.yaml
+│   ├── frontend-deployment.yaml
+│   └── frontend-service.yaml
+├── README.md
+└── explanation.md
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Deployment instructions
+### 1: Clone the repo and switch to project directory
+git clone https://github.com/kipyegonrotich/yolo-ip4.git
+cd yolo-ip4
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+###  2: Deploy to GKE
 
-### `npm run eject`
+kubectl apply -f mongo-statefulset.yaml
+kubectl apply -f mongo-service.yaml
+kubectl apply -f backend-deployment.yaml
+kubectl apply -f backend-service.yaml
+kubectl apply -f frontend-deployment.yaml
+kubectl apply -f frontend-service.yaml
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Access the App
+Access the deployed frontend here: 		http://34.29.152.248/
+## Docker Images
+All components use Docker Hub images from:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+-   `kipyegonrotich/yolofrontend`
+    
+-   `kipyegonrotich/yolobackend`
+    
+-   `kipyegonrotich/yolomongo`
+![alt text](dockerimagesc.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## Data Persistence
+MongoDB is deployed using a **StatefulSet** with a **PersistentVolumeClaim (PVC)** to ensure data is retained across pod restarts or deletions.
+![alt text](testpersistencysc.png)
