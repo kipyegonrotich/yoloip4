@@ -31,6 +31,7 @@ This project demonstrates the deployment of the Dockerized YOLO E-commerce appli
 
 
 ## Folder Structure
+```plaintext
 yolo-ip4/
 │   ├── mongo-statefulset.yaml
 │   ├── mongo-service.yaml
@@ -40,6 +41,7 @@ yolo-ip4/
 │   └── frontend-service.yaml
 ├── README.md
 └── explanation.md
+```
 
 ## Deployment instructions
 ### 1: Clone the repo and switch to project directory
@@ -49,13 +51,14 @@ cd yolo-ip4
 ### 2. Authenticate with GCP and connect to GKE cluster.
 
 ### 3: Deploy to GKE
+
 ```
-kubectl apply -f mongo-statefulset.yaml
-kubectl apply -f mongo-service.yaml
-kubectl apply -f backend-deployment.yaml
-kubectl apply -f backend-service.yaml
-kubectl apply -f frontend-deployment.yaml
-kubectl apply -f frontend-service.yaml
+- kubectl apply -f mongo-statefulset.yaml
+- kubectl apply -f mongo-service.yaml
+- kubectl apply -f backend-deployment.yaml
+- kubectl apply -f backend-service.yaml
+- kubectl apply -f frontend-deployment.yaml
+- kubectl apply -f frontend-service.yaml
 ```
 
 ## Access the App
