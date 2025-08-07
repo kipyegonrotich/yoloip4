@@ -1,55 +1,72 @@
-# Docker, Ansible and Vagrant: Containerization and Automated Deployment
+# YOLO E-commerce App IP 4 Orchestration 
 
-This project containerizes and automates the deployment of an e-commerce platform called **Yolo**, consisting of:
+This project demonstrates the deployment of the Dockerized YOLO E-commerce application to **Google Kubernetes Engine (GKE)** using Kubernetes manifests. The setup includes:
 
-- A **Node.js backend API**
-- A **React frontend application**
-- A **MongoDB** database
+- MongoDB as a **StatefulSet** with persistent storage
+- Frontend and backend services exposed via **LoadBalancers**
+- Docker images stored on **Docker Hub**
 
-The solution supports **two deployment options**:
+## Application Components
 
-1. **Local Docker Compose-based deployment** (manual)
-2. **Ansible + Vagrant automated provisioning and deployment**
+- **MongoDB** – NoSQL database deployed via StatefulSet
+- **Backend** – Express.js API server
+- **Frontend** – React.js web UI
 
----
+## Deployment Architecture
 
-## Tech Stack Overview
-
-| Tool           | Role                                                                 |
-|----------------|----------------------------------------------------------------------|
-| Docker         | Containerization of MongoDB, backend, and frontend                   |
-| Docker Compose | Orchestration of multi-container environments                        |
-| Ansible        | Automated configuration and container deployment on provisioned VMs  |
-| Vagrant        | VM provisioning (Ubuntu 20.04)                                       |
-| MongoDB        | NoSQL database with persistent volumes                               |
-| Node.js        | Backend API                                                          |
-| React          | Frontend user interface                                              |
-
----
-
-
-## Project Structure
-```.
-project-root/
-├── backend/ # Node.js backend
-│ └── Dockerfile
-├── client/ # React frontend
-│ └── Dockerfile
-├── docker-compose.yml # Manual orchestration
-├── Vagrantfile # VM provisioning
-├── playbook.yml # Main Ansible playbook
-├── roles/ # Ansible roles
-│ ├── mongodb/
-│ ├── backend/
-│ └── frontend/
-├── explanationIP2.md 
-├── explanationIP3.md
-└── README.md 
+```plaintext
++------------------+        +----------------+        +----------------+
+|  Frontend Pod    | <----> |  Backend Pod   | <----> |   MongoDB Pod  |
+| (LoadBalancer)   |        | (LoadBalancer) |        | (StatefulSet)  |
++------------------+        +----------------+        +----------------+
 ```
+## Prerequisites
 
----
-## Documentation
+-   Google Cloud SDK
+    
+-   Docker & Docker Hub account
+    
+-   GKE Cluster and `kubectl` configured
+    
 
-- [IP 2 Creating a Basic Micro-service - Explanation of steps undertaken to create a Basic Micro-service](./explanationIP2.md)
 
-- [IP 3 Configuration Management - IP3 Configuration Management - Deployment with Ansible and Vagrant ](./explanationIP3.md)
+## Folder Structure
+yolo-ip4/
+│   ├── mongo-statefulset.yaml
+│   ├── mongo-service.yaml
+│   ├── backend-deployment.yaml
+│   ├── backend-service.yaml
+│   ├── frontend-deployment.yaml
+│   └── frontend-service.yaml
+├── README.md
+└── explanation.md
+
+## Deployment instructions
+### 1: Clone the repo and switch to project directory
+git clone https://github.com/kipyegonrotich/yolo-ip4.git
+cd yolo-ip4
+
+###  2: Deploy to GKE
+
+kubectl apply -f mongo-statefulset.yaml
+kubectl apply -f mongo-service.yaml
+kubectl apply -f backend-deployment.yaml
+kubectl apply -f backend-service.yaml
+kubectl apply -f frontend-deployment.yaml
+kubectl apply -f frontend-service.yaml
+
+## Access the App
+Access the deployed frontend here: 		http://34.29.152.248/
+## Docker Images
+All components use Docker Hub images from:
+
+-   `kipyegonrotich/yolofrontend`
+    
+-   `kipyegonrotich/yolobackend`
+    
+-   `kipyegonrotich/yolomongo`
+![alt text](dockerimagesc.png)
+
+## Data Persistence
+MongoDB is deployed using a **StatefulSet** with a **PersistentVolumeClaim (PVC)** to ensure data is retained across pod restarts or deletions.
+![alt text](testpersistencysc.png)
