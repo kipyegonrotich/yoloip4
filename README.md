@@ -46,14 +46,17 @@ yolo-ip4/
 git clone https://github.com/kipyegonrotich/yolo-ip4.git
 cd yolo-ip4
 
-###  2: Deploy to GKE
+### 2. Authenticate with GCP and connect to GKE cluster.
 
+### 3: Deploy to GKE
+```
 kubectl apply -f mongo-statefulset.yaml
 kubectl apply -f mongo-service.yaml
 kubectl apply -f backend-deployment.yaml
 kubectl apply -f backend-service.yaml
 kubectl apply -f frontend-deployment.yaml
 kubectl apply -f frontend-service.yaml
+```
 
 ## Access the App
 Access the deployed frontend here: 		http://34.29.152.248/
