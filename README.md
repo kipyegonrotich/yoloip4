@@ -45,9 +45,10 @@ yolo-ip4/
 
 ## Deployment instructions
 ### 1: Clone the repo and switch to project directory
+```
 git clone https://github.com/kipyegonrotich/yolo-ip4.git
 cd yolo-ip4
-
+```
 ### 2. Authenticate with GCP and connect to GKE cluster.
 
 ### 3: Deploy to GKE
