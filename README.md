@@ -72,8 +72,10 @@ All components use Docker Hub images from:
 -   `kipyegonrotich/yolobackend`
     
 -   `kipyegonrotich/yolomongo`
+
 ![alt text](dockerimagesc.png)
 
 ## Data Persistence
 MongoDB is deployed using a **StatefulSet** with a **PersistentVolumeClaim (PVC)** to ensure data is retained across pod restarts or deletions.
+
 ![alt text](testpersistencysc.png)
