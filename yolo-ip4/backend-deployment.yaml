@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: yolo-backend
+  namespace: yolo-app
 spec:
   replicas: 1
   selector:
@@ -20,3 +21,16 @@ spec:
           env:
             - name: MONGO_URL
               value: mongodb://mongo:27017/yolodb
+          resources:
+            requests:
+              cpu: 250m
+              memory: 256Mi
+            limits:
+              cpu: 500m
+              memory: 512Mi
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 5100
+            initialDelaySeconds: 10
+            periodSeconds: 10
