@@ -14,25 +14,25 @@ The objective was to deploy a multi-container, Dockerized e-commerce web applica
 
 - **Frontend **: Serves the user interface.
 
-**Kind:** `Deployment`
-**Service:** `LoadBalancer`
-**Image:** `kipyegonrotich/yolofrontend`
+**Kind:** Deployment
+**Service:** LoadBalancer
+**Image:** kipyegonrotich/yolofrontend
 **Port:** 3000
 Communicates with backend via its LoadBalancer IP
 
 - **Backend **: Handles business logic and connects to the database
-**Kind:** `Deployment`
-**Service:** `LoadBalancer`
-**Image:** `kipyegonrotich/yolobackend`
+**Kind:** Deployment
+**Service:** LoadBalancer
+**Image:** kipyegonrotich/yolobackend
 **Port:** 5000
 Connects to MongoDB using internal service DNS
 - **MongoDB **: Stores user/product data persistently.
-**Kind:** `StatefulSet`
-**Storage:** PersistentVolumeClaim (`ReadWriteOnce`)
-**Image:** `kipyegonrotich/yolomongo`
+**Kind:** StatefulSet
+**Storage:** PersistentVolumeClaim (ReadWriteOnce)
+**Image:** kipyegonrotich/yolomongo
 
 **Why StatefulSet?**
-  - Guarantees stable DNS: `mongo-0.mongo.default.svc.cluster.local`
+  - Guarantees stable DNS: mongo-0.mongo.default.svc.cluster.local
   - Ensures ordered pod creation and persistence of volume
 ---
 
@@ -45,31 +45,31 @@ Connects to MongoDB using internal service DNS
 
 ### 2. **Backend**
 
-- Deployed via `Deployment` with a `LoadBalancer` service for external access.
-- Connects to MongoDB via internal DNS (`mongo-0.mongo:27017`).
-- Container image from Docker Hub: `kipyegonrotich/yolo-backend:v1.0.2`.
+- Deployed via Deployment with a LoadBalancer service for external access.
+- Connects to MongoDB via internal DNS (mongo-0.mongo:27017).
+- Container image from Docker Hub: kipyegonrotich/yolo-backend:v1.0.2.
 
 ### 3. **Frontend**
 
-- Also deployed via `Deployment`.
+- Also deployed via Deployment.
 - LoadBalancer service exposes it publicly.
-- Container image: `kipyegonrotich/yolo-frontend:v1.0.5`.
+- Container image: kipyegonrotich/yolo-frontend:v1.0.5.
 
 ---
 
 ## Networking
 
-- Frontend and backend are exposed to the internet via `LoadBalancer` services.
-- MongoDB is only accessible within the cluster via `ClusterIP`.
+- Frontend and backend are exposed to the internet via LoadBalancer services.
+- MongoDB is only accessible within the cluster via ClusterIP.
 
 ---
 
 ## Notes
 
-- All manifests were applied using `kubectl apply -f <filename>`.
+- All manifests were applied using kubectl apply -f <filename>.
 - Health checks and container ports were aligned to the Dockerfiles.
 - MongoDB is configured to run as a single replica due to simplicity.
-- All Docker images are hosted on Docker Hub under the user: `kipyegonrotich`.
+- All Docker images are hosted on Docker Hub under the user: kipyegonrotich.
 
 ---
 ## Persistence Test
@@ -81,10 +81,13 @@ To ensure that data added to the cart (stored in MongoDB) is **not lost when the
 This setup ensures that MongoDB writes data to a persistent disk that remains intact even after pod termination or rescheduling.
 
 - A product was added via the frontend UI.
-- The Mongo pod (`mongo-0`) was deleted using:
-  ```bash
+- The Mongo pod (mongo-0) was deleted using:
+  
+
+bash
   kubectl delete pod mongo-0 -n yolo-app
-  ```
+
+
 - The pod restarted automatically and the product data persisted — confirming the PersistentVolume was working.
 ![alt text](testpersistencysc.png)
 
@@ -93,4 +96,4 @@ This setup ensures that MongoDB writes data to a persistent disk that remains in
 - The application is accessible at [http://34.29.152.248](http://34.29.152.248)
 ![alt text](homepagesc.png)
 ![alt text](addedproductsc.png)
-![alt text](productsc.png)
+![alt text](productsc.png) 
