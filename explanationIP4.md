@@ -87,7 +87,7 @@ This setup ensures that MongoDB writes data to a persistent disk that remains in
   kubectl delete pod mongo-0 -n yolo-app
 ```
 
-- The pod restarted automatically and the product data persisted — confirming the PersistentVolume was working.
+- The pod restarted automatically and the product data persisted — confirming the PersistentVolume was working as shown below
 ![alt text](testpersistencysc.png)
 
 ## Outcome
