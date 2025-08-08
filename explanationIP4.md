@@ -93,5 +93,7 @@ bash
 ## Outcome
 
 - The application is accessible at [http://34.29.152.248](http://34.29.152.248)
+
+
 ![alt text](homepagesc.png)
 ![alt text](productsc.png)
