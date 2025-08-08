@@ -83,7 +83,7 @@ This setup ensures that MongoDB writes data to a persistent disk that remains in
 - The Mongo pod (mongo-0) was deleted using:
   
 
-bash```
+```
   kubectl delete pod mongo-0 -n yolo-app
 ```
 
