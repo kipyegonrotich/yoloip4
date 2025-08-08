@@ -94,5 +94,4 @@ bash
 
 - The application is accessible at [http://34.29.152.248](http://34.29.152.248)
 ![alt text](homepagesc.png)
-![alt text](addedproductsc-1.png)
 ![alt text](productsc.png)
