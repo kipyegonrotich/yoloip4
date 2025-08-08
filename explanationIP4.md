@@ -1,4 +1,4 @@
-# Technical Explanation: GKE Kubernetes Deployment of YOLO App
+# Technical Explanation: GKE Kubernetes Ochestration of YOLO App
 
 This document explains the key design choices made in deploying the YOLO e-commerce app on Google Kubernetes Engine.
 

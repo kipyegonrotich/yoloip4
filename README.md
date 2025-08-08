@@ -79,3 +79,8 @@ All components use Docker Hub images from:
 MongoDB is deployed using a **StatefulSet** with a **PersistentVolumeClaim (PVC)** to ensure data is retained across pod restarts or deletions.
 
 ![alt text](testpersistencysc.png)
+
+## Documentation
+Get a detailed explanation for IP4 below
+
+- [IP 4 Technical Explanation: GKE Kubernetes Ochestration of YOLO App](./explanationIP4.md)
