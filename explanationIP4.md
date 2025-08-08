@@ -25,6 +25,19 @@ The objective was to deploy a multi-container, Dockerized e-commerce web applica
 - **Image:** kipyegonrotich/yolobackend
 - **Port:** 5000 Connects to MongoDB using internal service DNS
 
+Why Deployment for Frontend and Backend?
+Alternative controllers such as Pods, ReplicaSets, or DaemonSets were considered.
+
+    - Pods alone lack self-healing and scaling features.
+
+    - ReplicaSets provide scaling but not rolling updates or rollback capabilities.
+
+    - DaemonSets are suited for node-level agents, not user-facing apps.
+
+    - StatefulSets are designed for workloads needing stable network identity and persistent storage, which is unnecessary for stateless services.
+
+*Deployment was chosen because it combines the benefits of ReplicaSets with rolling updates, rollback support, and automated pod recreation — making it the ideal choice for scalable, stateless services like the frontend and backend*.
+
 **MongoDB**: Stores user/product data persistently.
 - **Kind:** StatefulSet
 - **Storage:** PersistentVolumeClaim (ReadWriteOnce)
