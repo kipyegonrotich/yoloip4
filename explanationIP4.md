@@ -12,24 +12,24 @@ The objective was to deploy a multi-container, Dockerized e-commerce web applica
 
 ## Application Components
 
-- **Frontend **: Serves the user interface.
+**Frontend**: Serves the user interface.
 
-**Kind:** Deployment
-**Service:** LoadBalancer
-**Image:** kipyegonrotich/yolofrontend
-**Port:** 3000
+- **Kind:** Deployment
+- **Service:** LoadBalancer
+- **Image:** kipyegonrotich/yolofrontend
+- **Port:** 3000
 Communicates with backend via its LoadBalancer IP
 
-- **Backend **: Handles business logic and connects to the database
-**Kind:** Deployment
-**Service:** LoadBalancer
-**Image:** kipyegonrotich/yolobackend
-**Port:** 5000
+- **Backend**: Handles business logic and connects to the database
+- **Kind:** Deployment
+- **Service:** LoadBalancer
+- **Image:** kipyegonrotich/yolobackend
+- **Port:** 5000
 Connects to MongoDB using internal service DNS
-- **MongoDB **: Stores user/product data persistently.
-**Kind:** StatefulSet
-**Storage:** PersistentVolumeClaim (ReadWriteOnce)
-**Image:** kipyegonrotich/yolomongo
+- **MongoDB**: Stores user/product data persistently.
+- **Kind:** StatefulSet
+- **Storage:** PersistentVolumeClaim (ReadWriteOnce)
+- **Image:** kipyegonrotich/yolomongo
 
 **Why StatefulSet?**
   - Guarantees stable DNS: mongo-0.mongo.default.svc.cluster.local
