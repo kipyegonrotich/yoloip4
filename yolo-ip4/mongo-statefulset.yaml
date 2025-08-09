@@ -3,6 +3,8 @@ kind: StatefulSet
 metadata:
   name: mongo
   namespace: yolo-app
+  annotations:
+    description: "MongoDB StatefulSet with persistent storage"
 spec:
   serviceName: "mongo"
   replicas: 1
