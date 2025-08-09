@@ -34,7 +34,7 @@ Alternative controllers such as Pods, ReplicaSets, or DaemonSets were considered
 
 - **DaemonSets** are suited for node-level agents, not user-facing apps.
 
-- **StatefulSets** are designed for workloads needing stable network identity and persistent storage, which is unnecessary for stateless services.
+- **StatefulSets**c are designed for workloads needing stable network identity and persistent storage, which is unnecessary for stateless services.
 
 **Deployment** was chosen because it combines the benefits of ReplicaSets with rolling updates, rollback support, and automated pod recreation — making it the ideal choice for scalable, stateless services like the frontend and backend.
 
@@ -59,13 +59,13 @@ Alternative controllers such as Pods, ReplicaSets, or DaemonSets were considered
 
 - Deployed via Deployment with a LoadBalancer service for external access.
 - Connects to MongoDB via internal DNS (mongo-0.mongo:27017).
-- Container image from Docker Hub: kipyegonrotich/yolo-backend:v1.0.2.
+- Container image from Docker Hub: kipyegonrotich/yolo-backend
 
 ### 3. **Frontend**
 
 - Also deployed via Deployment.
 - LoadBalancer service exposes it publicly.
-- Container image: kipyegonrotich/yolo-frontend:v1.0.5.
+- Container image: kipyegonrotich/yolo-frontend
 
 ---
 
