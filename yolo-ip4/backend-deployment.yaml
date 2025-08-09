@@ -21,6 +21,7 @@ spec:
           env:
             - name: MONGO_URL
               value: mongodb://mongo:27017/yolodb
+              
           resources:
             requests:
               cpu: 250m
