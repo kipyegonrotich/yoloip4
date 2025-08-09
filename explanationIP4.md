@@ -105,8 +105,10 @@ This setup ensures that MongoDB writes data to a persistent disk that remains in
 
 ## Outcome
 
-- The application is accessible at [http://34.29.152.248](http://34.29.152.248)
+- The application is accessible at [http://34.71.124.212/]
 
+![alt text](homepagesc-1.png)
 
-![alt text](homepagesc.png)
-![alt text](productsc.png)
+![alt text](addedproductsc-2.png)
+
+![alt text](productsc-1.png)
