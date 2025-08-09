@@ -18,6 +18,7 @@ spec:
           image: kipyegonrotich/yolo-frontend:v1.0.5
           ports:
             - containerPort: 80
+            
           resources:
             requests:
               cpu: 250m
