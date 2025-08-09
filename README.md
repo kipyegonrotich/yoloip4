@@ -32,7 +32,7 @@ This project demonstrates the deployment of the Dockerized YOLO E-commerce appli
 
 ## Folder Structure
 ```plaintext
-yolo-ip4/
+manifests/
 │   ├── mongo-statefulset.yaml
 │   ├── mongo-service.yaml
 │   ├── backend-deployment.yaml
@@ -63,7 +63,7 @@ cd yolo-ip4
 ```
 
 ## Access the App
-Access the deployed frontend here: 		http://34.29.152.248/
+Access the deployed frontend here: 		http://34.71.124.212/
 ## Docker Images
 All components use Docker Hub images from:
 
