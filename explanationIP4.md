@@ -41,6 +41,9 @@ Alternative controllers such as Pods, ReplicaSets, or DaemonSets were considered
 **MongoDB**: Stores user/product data persistently.
 - **Kind:** StatefulSet
 - **Storage:** PersistentVolumeClaim (ReadWriteOnce)
+      - Defined inside the StatefulSet manifest using volumeClaimTemplates (named mongo-persistent-storage).
+
+      - Mounted to /data/db so that MongoDB writes directly to the persistent disk.
 - **Image:** kipyegonrotich/yolomongo
 
 **Why StatefulSet?**
