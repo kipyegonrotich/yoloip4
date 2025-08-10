@@ -77,6 +77,9 @@ All components use Docker Hub images from:
 
 ## Data Persistence
 MongoDB is deployed using a **StatefulSet** with a **PersistentVolumeClaim (PVC)** to ensure data is retained across pod restarts or deletions.
+      - Defined inside the StatefulSet manifest using volumeClaimTemplates (named mongo-persistent-storage).
+
+      - Mounted to /data/db so that MongoDB writes directly to the persistent disk.
 
 ![alt text](testpersistencysc.png)
 
